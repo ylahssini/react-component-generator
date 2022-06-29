@@ -1,0 +1,31 @@
+import React from 'react';
+{{#if hasValidateFunction}}
+import { Field, reduxForm } from 'redux-form';
+import validate from './{{name}}.validate';
+{{/if}}
+{{#if hasStyledComponent}}
+import { Styled{{name}} } from './{{name}}.styled';
+{{/if}}
+
+const {{name}} = () => (
+    {{#if hasStyledComponent}}
+    <Styled{{name}}>
+    {{else}}
+    <div>
+    {{/if}}
+        <h1>This default example of {{name}}.jsx</h1>
+    {{#if hasStyledComponent}}
+    </Styled{{name}}>
+    {{else}}
+    </div>
+    {{/if}}
+);
+
+{{#if hasValidateFunction}}
+export default reduxForm({
+    form: '{{name}}Form',
+    validate,
+})({{name}});
+{{else}}
+export default {{name}};
+{{/if}}

@@ -1,0 +1,16 @@
+{{#if isConnectedWithRedux }}
+import { connect } from 'react-redux';
+{{/if}}
+import {{name}} from './{{name}}';
+
+{{#if isConnectedWithRedux }}
+const mapStateToProps = null;
+
+const mapDispatchToProps = null;
+
+{{/if}}
+{{#if isConnectedWithRedux }}
+export default connect(mapStateToProps, mapDispatchToProps)({{name}});
+{{else}}
+export default {{name}};
+{{/if}}
